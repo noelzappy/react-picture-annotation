@@ -5,11 +5,13 @@ import DeleteButton from "./DeleteButton";
 export interface IDefaultInputSection {
   value: IComment;
   placeholder?: string;
+  onChange: (value: IComment) => void;
   onDelete: () => void;
 }
 
 export default ({
   value,
+  onChange,
   onDelete,
   placeholder = "INPUT TAG HERE",
 }: IDefaultInputSection) => {
@@ -19,7 +21,7 @@ export default ({
         className="rp-default-input-section_input"
         placeholder={placeholder}
         value={value.type}
-        // onChange={(e) => onChange({ type: e.target.value })}
+        onChange={(e) => onChange({ ...value, type: e.target.value })}
       />
       <a className="rp-default-input-section_delete" onClick={() => onDelete()}>
         <DeleteButton />

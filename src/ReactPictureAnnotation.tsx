@@ -53,12 +53,12 @@ export default class ReactPictureAnnotation extends React.Component<
     annotationStyle: defaultShapeStyle,
     inputElement: (
       value: IComment,
-      onChange: (value: string) => void,
+      onChange: (value: IComment) => void,
       onDelete: () => void
     ) => (
       <DefaultInputSection
         value={value}
-        // onChange={onChange}
+        onChange={onChange}
         onDelete={onDelete}
       />
     ),

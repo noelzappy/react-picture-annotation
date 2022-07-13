@@ -26,7 +26,7 @@ storiesOf("Hello World", module)
       >([
         {
           id: "a",
-          comment: "HA HA HA",
+          comment: { type: "Hello", severity: "3", comment: "HAHAHA " },
           mark: {
             type: "RECT",
             width: 161,
