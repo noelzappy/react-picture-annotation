@@ -1,4 +1,4 @@
-import { IAnnotation } from "./Annotation";
+import { IAnnotation, IComment } from "./Annotation";
 
 export const defaultShapeStyle: IShapeStyle = {
   padding: 5,
@@ -65,7 +65,7 @@ export interface IShape {
   ) => IShapeBase;
   getAnnotationData: () => IAnnotation;
   adjustMark: (adjustBase: IShapeAdjustBase) => void;
-  setComment: (comment: string) => void;
+  setComment: (comment: IComment) => void;
   equal: (data: IAnnotation) => boolean;
 }
 
@@ -151,7 +151,7 @@ export class RectShape implements IShape {
       const { comment } = this.annotationData;
       if (comment) {
         canvas2D.font = `${fontSize}px ${fontFamily}`;
-        const metrics = canvas2D.measureText(comment);
+        const metrics = canvas2D.measureText(comment.type);
         canvas2D.save();
         canvas2D.fillStyle = fontBackground;
         canvas2D.fillRect(
@@ -162,7 +162,7 @@ export class RectShape implements IShape {
         );
         canvas2D.textBaseline = "top";
         canvas2D.fillStyle = fontColor;
-        canvas2D.fillText(comment, x + padding, y + padding);
+        canvas2D.fillText(comment.type, x + padding, y + padding);
       }
     }
     canvas2D.restore();
@@ -192,7 +192,7 @@ export class RectShape implements IShape {
     return this.annotationData;
   };
 
-  public setComment = (comment: string) => {
+  public setComment = (comment: IComment) => {
     this.annotationData.comment = comment;
   };
 

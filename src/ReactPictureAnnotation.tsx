@@ -1,5 +1,5 @@
 import React, { MouseEventHandler } from "react";
-import { IAnnotation } from "./Annotation";
+import { IAnnotation, IComment } from "./Annotation";
 import { IAnnotationState } from "./annotation/AnnotationState";
 import { DefaultAnnotationState } from "./annotation/DefaultAnnotationState";
 import DefaultInputSection from "./DefaultInputSection";
@@ -26,8 +26,8 @@ interface IReactPictureAnnotationProps {
   annotationStyle: IShapeStyle;
   defaultAnnotationSize?: number[];
   inputElement: (
-    value: string,
-    onChange: (value: string) => void,
+    value: IComment,
+    onChange: (value: IComment) => void,
     onDelete: () => void
   ) => React.ReactElement;
 }
@@ -52,7 +52,7 @@ export default class ReactPictureAnnotation extends React.Component<
     scrollSpeed: 0.0005,
     annotationStyle: defaultShapeStyle,
     inputElement: (
-      value: string,
+      value: IComment,
       onChange: (value: string) => void,
       onDelete: () => void
     ) => (
@@ -70,7 +70,7 @@ export default class ReactPictureAnnotation extends React.Component<
       top: 0,
     },
     showInput: false,
-    inputComment: "",
+    inputComment: {} as IComment,
   };
 
   set selectedId(value: string | null) {
@@ -328,7 +328,7 @@ export default class ReactPictureAnnotation extends React.Component<
     }
   };
 
-  private onInputCommentChange = (comment: string) => {
+  private onInputCommentChange = (comment: IComment) => {
     const selectedShapeIndex = this.shapes.findIndex(
       (item) => item.getAnnotationData().id === this.selectedId
     );
