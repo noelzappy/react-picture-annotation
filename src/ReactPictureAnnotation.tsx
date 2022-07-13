@@ -58,7 +58,7 @@ export default class ReactPictureAnnotation extends React.Component<
     ) => (
       <DefaultInputSection
         value={value}
-        onChange={onChange}
+        // onChange={onChange}
         onDelete={onDelete}
       />
     ),
