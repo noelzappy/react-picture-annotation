@@ -137,7 +137,7 @@ export default class ReactPictureAnnotation extends React.Component<
       }
     }
 
-    this.syncAnnotationData();
+    // this.syncAnnotationData();
     this.syncSelectedId();
   };
 
