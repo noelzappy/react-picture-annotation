@@ -111,14 +111,14 @@ var ReactPictureAnnotation = /** @class */ (function (_super) {
                                 left: x,
                                 top: y + height + _this.props.marginWithInput,
                             },
-                            inputComment: item.getAnnotationData().comment || "",
+                            inputComment: item.getAnnotationData().comment || {},
                         });
                     }
                 }
                 if (!hasSelectedItem) {
                     _this.setState({
                         showInput: false,
-                        inputComment: "",
+                        inputComment: {},
                     });
                 }
             }

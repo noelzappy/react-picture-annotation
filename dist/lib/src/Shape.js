@@ -80,8 +80,9 @@ var RectShape = /** @class */ (function () {
             _this.annotationData.comment = comment;
         };
         this.equal = function (data) {
+            var _a;
             return (data.id === _this.annotationData.id &&
-                data.comment === _this.annotationData.comment &&
+                data.comment === ((_a = _this.annotationData.comment) === null || _a === void 0 ? void 0 : _a.type) &&
                 data.mark.x === _this.annotationData.mark.x &&
                 data.mark.y === _this.annotationData.mark.y &&
                 data.mark.width === _this.annotationData.mark.width &&

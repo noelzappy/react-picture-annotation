@@ -424,7 +424,9 @@ var RectShape = function RectShape(_data, onChange) {
   };
 
   this.equal = function (data) {
-    return data.id === _this.annotationData.id && data.comment === _this.annotationData.comment && data.mark.x === _this.annotationData.mark.x && data.mark.y === _this.annotationData.mark.y && data.mark.width === _this.annotationData.mark.width && data.mark.height === _this.annotationData.mark.height;
+    var _this$annotationData$3;
+
+    return data.id === _this.annotationData.id && data.comment === ((_this$annotationData$3 = _this.annotationData.comment) === null || _this$annotationData$3 === void 0 ? void 0 : _this$annotationData$3.type) && data.mark.x === _this.annotationData.mark.x && data.mark.y === _this.annotationData.mark.y && data.mark.width === _this.annotationData.mark.width && data.mark.height === _this.annotationData.mark.height;
   };
 
   this.annotationData = _data;
@@ -1022,7 +1024,7 @@ var ReactPictureAnnotation = /*#__PURE__*/function (_React$Component) {
                   left: x,
                   top: y + height + _this.props.marginWithInput
                 },
-                inputComment: item.getAnnotationData().comment || ""
+                inputComment: item.getAnnotationData().comment || {}
               });
             }
           }
@@ -1035,7 +1037,7 @@ var ReactPictureAnnotation = /*#__PURE__*/function (_React$Component) {
         if (!hasSelectedItem) {
           _this.setState({
             showInput: false,
-            inputComment: ""
+            inputComment: {}
           });
         }
       }
