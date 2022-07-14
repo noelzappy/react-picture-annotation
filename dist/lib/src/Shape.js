@@ -53,13 +53,13 @@ var RectShape = /** @class */ (function () {
                 var comment = _this.annotationData.comment;
                 if (comment) {
                     canvas2D.font = fontSize + "px " + fontFamily;
-                    var metrics = canvas2D.measureText(comment);
+                    var metrics = canvas2D.measureText(comment.type);
                     canvas2D.save();
                     canvas2D.fillStyle = fontBackground;
                     canvas2D.fillRect(x, y, metrics.width + padding * 2, fontSize + padding * 2);
                     canvas2D.textBaseline = "top";
                     canvas2D.fillStyle = fontColor;
-                    canvas2D.fillText(comment, x + padding, y + padding);
+                    canvas2D.fillText(comment.type, x + padding, y + padding);
                 }
             }
             canvas2D.restore();

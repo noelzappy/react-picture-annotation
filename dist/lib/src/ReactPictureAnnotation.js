@@ -32,7 +32,7 @@ var ReactPictureAnnotation = /** @class */ (function (_super) {
                 top: 0,
             },
             showInput: false,
-            inputComment: "",
+            inputComment: {},
         };
         _this.shapes = [];
         _this.scaleState = defaultState;

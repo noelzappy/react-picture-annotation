@@ -1,5 +1,5 @@
 import React from "react";
-import { IAnnotation } from "./Annotation";
+import { IAnnotation, IComment } from "./Annotation";
 import { IAnnotationState } from "./annotation/AnnotationState";
 import { IShape, IShapeBase, IShapeStyle } from "./Shape";
 import { ITransformer } from "./Transformer";
@@ -15,7 +15,7 @@ interface IReactPictureAnnotationProps {
     image: string;
     annotationStyle: IShapeStyle;
     defaultAnnotationSize?: number[];
-    inputElement: (value: string, onChange: (value: string) => void, onDelete: () => void) => React.ReactElement;
+    inputElement: (value: IComment, onChange: (value: IComment) => void, onDelete: () => void) => React.ReactElement;
 }
 interface IStageState {
     scale: number;
@@ -27,7 +27,7 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
         marginWithInput: number;
         scrollSpeed: number;
         annotationStyle: IShapeStyle;
-        inputElement: (value: string, onChange: (value: string) => void, onDelete: () => void) => JSX.Element;
+        inputElement: (value: IComment, onChange: (value: IComment) => void, onDelete: () => void) => JSX.Element;
     };
     state: {
         inputPosition: {
@@ -35,7 +35,7 @@ export default class ReactPictureAnnotation extends React.Component<IReactPictur
             top: number;
         };
         showInput: boolean;
-        inputComment: string;
+        inputComment: IComment;
     };
     set selectedId(value: string | null);
     get selectedId(): string | null;

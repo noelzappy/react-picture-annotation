@@ -58,6 +58,55 @@
     return Constructor;
   }
 
+  function _defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+
+    return obj;
+  }
+
+  function ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(object);
+      if (enumerableOnly) symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+      keys.push.apply(keys, symbols);
+    }
+
+    return keys;
+  }
+
+  function _objectSpread2(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i] != null ? arguments[i] : {};
+
+      if (i % 2) {
+        ownKeys(Object(source), true).forEach(function (key) {
+          _defineProperty(target, key, source[key]);
+        });
+      } else if (Object.getOwnPropertyDescriptors) {
+        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+      } else {
+        ownKeys(Object(source)).forEach(function (key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+    }
+
+    return target;
+  }
+
   function _inherits(subClass, superClass) {
     if (typeof superClass !== "function" && superClass !== null) {
       throw new TypeError("Super expression must either be null or a function");
@@ -336,13 +385,13 @@
 
         if (_comment) {
           canvas2D.font = "".concat(fontSize, "px ").concat(fontFamily);
-          var metrics = canvas2D.measureText(_comment);
+          var metrics = canvas2D.measureText(_comment.type);
           canvas2D.save();
           canvas2D.fillStyle = fontBackground;
           canvas2D.fillRect(x, y, metrics.width + padding * 2, fontSize + padding * 2);
           canvas2D.textBaseline = "top";
           canvas2D.fillStyle = fontColor;
-          canvas2D.fillText(_comment, x + padding, y + padding);
+          canvas2D.fillText(_comment.type, x + padding, y + padding);
         }
       }
 
@@ -810,9 +859,11 @@
     }, /*#__PURE__*/React.createElement("input", {
       className: "rp-default-input-section_input",
       placeholder: placeholder,
-      value: value,
+      value: value.type,
       onChange: function onChange(e) {
-        return _onChange(e.target.value);
+        return _onChange(_objectSpread2(_objectSpread2({}, value), {}, {
+          type: e.target.value
+        }));
       }
     }), /*#__PURE__*/React.createElement("a", {
       className: "rp-default-input-section_delete",
@@ -849,7 +900,7 @@
           top: 0
         },
         showInput: false,
-        inputComment: ""
+        inputComment: {}
       };
       _this.shapes = [];
       _this.scaleState = defaultState;

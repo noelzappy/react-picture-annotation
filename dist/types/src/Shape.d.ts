@@ -1,4 +1,4 @@
-import { IAnnotation } from "./Annotation";
+import { IAnnotation, IComment } from "./Annotation";
 export declare const defaultShapeStyle: IShapeStyle;
 export interface IShapeStyle {
     padding: number;
@@ -40,7 +40,7 @@ export interface IShape {
     paint: (canvas2D: CanvasRenderingContext2D, calculateTruePosition: (shapeData: IShapeBase) => IShapeBase, selected: boolean) => IShapeBase;
     getAnnotationData: () => IAnnotation;
     adjustMark: (adjustBase: IShapeAdjustBase) => void;
-    setComment: (comment: string) => void;
+    setComment: (comment: IComment) => void;
     equal: (data: IAnnotation) => boolean;
 }
 export declare class RectShape implements IShape {
@@ -65,6 +65,6 @@ export declare class RectShape implements IShape {
         height?: number | undefined;
     }) => void;
     getAnnotationData: () => IAnnotation<IShapeData>;
-    setComment: (comment: string) => void;
+    setComment: (comment: IComment) => void;
     equal: (data: IAnnotation) => boolean;
 }

@@ -1,8 +1,9 @@
 /// <reference types="react" />
+import { IComment } from "Annotation";
 export interface IDefaultInputSection {
-    value: string;
+    value: IComment;
     placeholder?: string;
-    onChange: (value: string) => void;
+    onChange: (value: IComment) => void;
     onDelete: () => void;
 }
 declare const _default: ({ value, onChange, onDelete, placeholder, }: IDefaultInputSection) => JSX.Element;
