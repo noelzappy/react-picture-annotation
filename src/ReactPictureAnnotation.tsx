@@ -242,7 +242,7 @@ export default class ReactPictureAnnotation extends React.Component<
               left: x,
               top: y + height + this.props.marginWithInput,
             },
-            inputComment: item.getAnnotationData().comment || "",
+            inputComment: item.getAnnotationData().comment || ({} as IComment),
           });
         }
       }
@@ -250,7 +250,7 @@ export default class ReactPictureAnnotation extends React.Component<
       if (!hasSelectedItem) {
         this.setState({
           showInput: false,
-          inputComment: "",
+          inputComment: {} as IComment,
         });
       }
     }

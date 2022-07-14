@@ -199,7 +199,7 @@ export class RectShape implements IShape {
   public equal = (data: IAnnotation) => {
     return (
       data.id === this.annotationData.id &&
-      data.comment === this.annotationData.comment &&
+      data.comment === this.annotationData.comment?.type &&
       data.mark.x === this.annotationData.mark.x &&
       data.mark.y === this.annotationData.mark.y &&
       data.mark.width === this.annotationData.mark.width &&
