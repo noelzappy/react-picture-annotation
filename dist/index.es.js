@@ -950,9 +950,8 @@ var ReactPictureAnnotation = /*#__PURE__*/function (_React$Component) {
         } else {
           _this.onImageChange();
         }
-      }
+      } // this.syncAnnotationData();
 
-      _this.syncAnnotationData();
 
       _this.syncSelectedId();
     };

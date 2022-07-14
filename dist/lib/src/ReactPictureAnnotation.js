@@ -68,7 +68,7 @@ var ReactPictureAnnotation = /** @class */ (function (_super) {
                     _this.onImageChange();
                 }
             }
-            _this.syncAnnotationData();
+            // this.syncAnnotationData();
             _this.syncSelectedId();
         };
         _this.calculateMousePosition = function (positionX, positionY) {

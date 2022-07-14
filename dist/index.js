@@ -956,9 +956,8 @@
           } else {
             _this.onImageChange();
           }
-        }
+        } // this.syncAnnotationData();
 
-        _this.syncAnnotationData();
 
         _this.syncSelectedId();
       };
