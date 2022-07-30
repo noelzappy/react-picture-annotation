@@ -87,7 +87,6 @@
     }
   },
   "lint-staged": {
-    "{stories,src}/**/*.css": "stylelint",
     "{stories,src}/**/*.{ts,tsx}": [
       "tslint --project tsconfig.json -c tslint.json --fix",
       "prettier --write",
