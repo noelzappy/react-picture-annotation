@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -27,7 +27,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = "/* .rus {\n  --theme-color: hsl(262, 24%, 84%);\n  --theme-background: hsl(262, 25%, 98%);\n\n  position: relative;\n  padding: 10px;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto,\n    Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", Helvetica, Arial,\n    sans-serif;\n  background-color: var(--theme-background);\n  border: 1px dashed var(--theme-color);\n  border-radius: 5px;\n  cursor: pointer;\n} */\n\n.rp-stage {\n  position: relative;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto,\n    Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", Helvetica, Arial,\n    sans-serif;\n}\n\n.rp-image {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  overflow: hidden;\n}\n\n.rp-shapes {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n}\n\n.rp-selected-input {\n  position: absolute;\n}\n\n.rp-delete {\n  width: 20px;\n  height: 20px;\n  fill: white;\n}\n\n.rp-delete-section {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.rp-default-input-section {\n  display: flex;\n  align-items: stretch;\n  background-color: #3384ff;\n  border: none;\n  border-radius: 5px;\n}\n\n.rp-default-input-section input {\n  padding: 10px;\n  color: white;\n  background: transparent;\n  border: 0;\n  outline: none;\n}\n\n.rp-default-input-section input::placeholder {\n  color: #94bfff;\n}\n\n.rp-default-input-section a {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 35px;\n  color: white;\n  font-size: 12px;\n  background-color: #3b5bdb;\n  border-radius: 0 5px 5px 0;\n  cursor: pointer;\n  transition: background-color 0.5s, color 0.5s;\n}\n\n.rp-default-input-section a:hover,\n.rp-default-input-section a:active {\n  color: #3384ff;\n  background-color: #5c7cfa;\n}\n";
+var css_248z = "/* .rus {\n  --theme-color: hsl(262, 24%, 84%);\n  --theme-background: hsl(262, 25%, 98%);\n\n  position: relative;\n  padding: 10px;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto,\n    Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", Helvetica, Arial,\n    sans-serif;\n  background-color: var(--theme-background);\n  border: 1px dashed var(--theme-color);\n  border-radius: 5px;\n  cursor: pointer;\n} */\n\n.rp-stage {\n  position: relative;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto,\n    Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", Helvetica, Arial,\n    sans-serif;\n}\n\n.rp-image {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  overflow: hidden;\n}\n\n.rp-shapes {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n}\n\n.rp-selected-input {\n  position: absolute;\n}\n\n.rp-delete {\n  width: 20px;\n  height: 20px;\n  fill: white;\n}\n\n.rp-delete-section {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.rp-default-input-section {\n  display: flex;\n  align-items: stretch;\n  background-color: #3384ff;\n  border: none;\n  border-radius: 5px;\n}\n\n.rp-default-input-section input {\n  padding: 10px;\n  color: white;\n  background: transparent;\n  border: 0;\n  outline: none;\n}\n\n.rp-default-input-section input::placeholder {\n  color: #94bfff;\n}\n\n.rp-default-input-section a {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 35px;\n  color: white;\n  font-size: 12px;\n  background-color: #3b5bdb;\n  border-radius: 0 5px 5px 0;\n  cursor: pointer;\n  transition: background-color 0.5s, color 0.5s;\n}\n\n.rp-default-input-section a:hover,\n.rp-default-input-section a:active {\n  color: #3384ff;\n  background-color: #5c7cfa;\n}\n\n\n.loader {\n  border: 16px solid #f3f3f3;\n  border-radius: 50%;\n  border-top: 16px solid #3498db;\n  width: 120px;\n  height: 120px;\n  -webkit-animation: spin 2s linear infinite;\n  /* Safari */\n  animation: spin 2s linear infinite;\n}\n\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n\n  100% {\n    transform: rotate(360deg);\n  }\n}";
 styleInject(css_248z);
 
 function _classCallCheck(instance, Constructor) {
@@ -846,27 +846,38 @@ var DeleteButton = (function () {
 
 var DefaultInputSection = (function (_ref) {
   var value = _ref.value,
-      _onChange = _ref.onChange,
+      onChange = _ref.onChange,
       onDelete = _ref.onDelete,
       _ref$placeholder = _ref.placeholder,
       placeholder = _ref$placeholder === void 0 ? "INPUT TAG HERE" : _ref$placeholder;
+
+  var _useState = useState(value.type),
+      _useState2 = _slicedToArray(_useState, 2),
+      text = _useState2[0],
+      setText = _useState2[1];
+
   return /*#__PURE__*/React.createElement("div", {
     className: "rp-default-input-section"
   }, /*#__PURE__*/React.createElement("input", {
     className: "rp-default-input-section_input",
     placeholder: placeholder,
-    value: value.type,
+    value: text,
     onChange: function onChange(e) {
-      return _onChange(_objectSpread2(_objectSpread2({}, value), {}, {
-        type: e.target.value
-      }));
+      return setText(e.target.value);
     }
   }), /*#__PURE__*/React.createElement("a", {
     className: "rp-default-input-section_delete",
     onClick: function onClick() {
       return onDelete();
     }
-  }, /*#__PURE__*/React.createElement(DeleteButton, null)));
+  }, /*#__PURE__*/React.createElement(DeleteButton, null)), /*#__PURE__*/React.createElement("a", {
+    className: "rp-default-input-section_delete",
+    onClick: function onClick() {
+      onChange(_objectSpread2(_objectSpread2({}, value), {}, {
+        type: text
+      }));
+    }
+  }, "Save Annotation"));
 });
 
 var defaultState = {
@@ -1294,7 +1305,8 @@ var ReactPictureAnnotation = /*#__PURE__*/function (_React$Component) {
       var _this$props3 = this.props,
           width = _this$props3.width,
           height = _this$props3.height,
-          inputElement = _this$props3.inputElement;
+          inputElement = _this$props3.inputElement,
+          loading = _this$props3.loading;
       var _this$state = this.state,
           showInput = _this$state.showInput,
           inputPosition = _this$state.inputPosition,
@@ -1310,7 +1322,22 @@ var ReactPictureAnnotation = /*#__PURE__*/function (_React$Component) {
         ref: this.imageCanvasRef,
         width: width * 2,
         height: height * 2
-      }), /*#__PURE__*/React.createElement("canvas", {
+      }), /*#__PURE__*/React.createElement("div", {
+        className: "rp-selected-input",
+        style: {
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100vh",
+          width: "100%"
+        }
+      }, loading && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+        className: "loader"
+      }), /*#__PURE__*/React.createElement("div", {
+        style: {
+          backgroundColor: "#fff"
+        }
+      }, "Loading Annotations", " "))), /*#__PURE__*/React.createElement("canvas", {
         className: "rp-shapes",
         style: {
           width: width,
@@ -1364,7 +1391,8 @@ ReactPictureAnnotation.defaultProps = {
       onChange: onChange,
       onDelete: onDelete
     });
-  }
+  },
+  loading: false
 };
 
 export { DefaultInputSection, ReactPictureAnnotation, defaultShapeStyle };

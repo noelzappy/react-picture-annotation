@@ -30,6 +30,7 @@ interface IReactPictureAnnotationProps {
     onChange: (value: IComment) => void,
     onDelete: () => void
   ) => React.ReactElement;
+  loading: boolean;
 }
 
 interface IStageState {
@@ -62,6 +63,7 @@ export default class ReactPictureAnnotation extends React.Component<
         onDelete={onDelete}
       />
     ),
+    loading: false,
   };
 
   public state = {
@@ -161,7 +163,7 @@ export default class ReactPictureAnnotation extends React.Component<
   };
 
   public render() {
-    const { width, height, inputElement } = this.props;
+    const { width, height, inputElement, loading } = this.props;
     const { showInput, inputPosition, inputComment } = this.state;
     return (
       <div className="rp-stage">
@@ -172,6 +174,29 @@ export default class ReactPictureAnnotation extends React.Component<
           width={width * 2}
           height={height * 2}
         />
+        <div
+          className="rp-selected-input"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100vh",
+            width: "100%",
+          }}
+        >
+          {loading && (
+            <div>
+              <div className="loader" />
+              <div
+                style={{
+                  backgroundColor: "#fff",
+                }}
+              >
+                Loading Annotations{" "}
+              </div>
+            </div>
+          )}
+        </div>
         <canvas
           className="rp-shapes"
           style={{ width, height }}

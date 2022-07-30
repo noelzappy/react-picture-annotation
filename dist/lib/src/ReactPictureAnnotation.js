@@ -314,10 +314,23 @@ var ReactPictureAnnotation = /** @class */ (function (_super) {
         configurable: true
     });
     ReactPictureAnnotation.prototype.render = function () {
-        var _a = this.props, width = _a.width, height = _a.height, inputElement = _a.inputElement;
+        var _a = this.props, width = _a.width, height = _a.height, inputElement = _a.inputElement, loading = _a.loading;
         var _b = this.state, showInput = _b.showInput, inputPosition = _b.inputPosition, inputComment = _b.inputComment;
         return (React.createElement("div", { className: "rp-stage" },
             React.createElement("canvas", { style: { width: width, height: height }, className: "rp-image", ref: this.imageCanvasRef, width: width * 2, height: height * 2 }),
+            React.createElement("div", { className: "rp-selected-input", style: {
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    height: "100vh",
+                    width: "100%",
+                } }, loading && (React.createElement("div", null,
+                React.createElement("div", { className: "loader" }),
+                React.createElement("div", { style: {
+                        backgroundColor: "#fff",
+                    } },
+                    "Loading Annotations",
+                    " ")))),
             React.createElement("canvas", { className: "rp-shapes", style: { width: width, height: height }, ref: this.canvasRef, width: width * 2, height: height * 2, onMouseDown: this.onMouseDown, onMouseMove: this.onMouseMove, onMouseUp: this.onMouseUp, onMouseLeave: this.onMouseLeave, onWheel: this.onWheel }),
             showInput && (React.createElement("div", { className: "rp-selected-input", style: inputPosition }, inputElement(inputComment, this.onInputCommentChange, this.onDelete)))));
     };
@@ -326,6 +339,7 @@ var ReactPictureAnnotation = /** @class */ (function (_super) {
         scrollSpeed: 0.0005,
         annotationStyle: defaultShapeStyle,
         inputElement: function (value, onChange, onDelete) { return (React.createElement(DefaultInputSection, { value: value, onChange: onChange, onDelete: onDelete })); },
+        loading: false,
     };
     return ReactPictureAnnotation;
 }(React.Component));

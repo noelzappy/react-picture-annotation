@@ -4,7 +4,7 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.named = {}, global.React));
 }(this, (function (exports, React) { 'use strict';
 
-  React = React && Object.prototype.hasOwnProperty.call(React, 'default') ? React['default'] : React;
+  var React__default = 'default' in React ? React['default'] : React;
 
   function styleInject(css, ref) {
     if ( ref === void 0 ) ref = {};
@@ -33,7 +33,7 @@
     }
   }
 
-  var css_248z = "/* .rus {\n  --theme-color: hsl(262, 24%, 84%);\n  --theme-background: hsl(262, 25%, 98%);\n\n  position: relative;\n  padding: 10px;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto,\n    Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", Helvetica, Arial,\n    sans-serif;\n  background-color: var(--theme-background);\n  border: 1px dashed var(--theme-color);\n  border-radius: 5px;\n  cursor: pointer;\n} */\n\n.rp-stage {\n  position: relative;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto,\n    Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", Helvetica, Arial,\n    sans-serif;\n}\n\n.rp-image {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  overflow: hidden;\n}\n\n.rp-shapes {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n}\n\n.rp-selected-input {\n  position: absolute;\n}\n\n.rp-delete {\n  width: 20px;\n  height: 20px;\n  fill: white;\n}\n\n.rp-delete-section {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.rp-default-input-section {\n  display: flex;\n  align-items: stretch;\n  background-color: #3384ff;\n  border: none;\n  border-radius: 5px;\n}\n\n.rp-default-input-section input {\n  padding: 10px;\n  color: white;\n  background: transparent;\n  border: 0;\n  outline: none;\n}\n\n.rp-default-input-section input::placeholder {\n  color: #94bfff;\n}\n\n.rp-default-input-section a {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 35px;\n  color: white;\n  font-size: 12px;\n  background-color: #3b5bdb;\n  border-radius: 0 5px 5px 0;\n  cursor: pointer;\n  transition: background-color 0.5s, color 0.5s;\n}\n\n.rp-default-input-section a:hover,\n.rp-default-input-section a:active {\n  color: #3384ff;\n  background-color: #5c7cfa;\n}\n";
+  var css_248z = "/* .rus {\n  --theme-color: hsl(262, 24%, 84%);\n  --theme-background: hsl(262, 25%, 98%);\n\n  position: relative;\n  padding: 10px;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto,\n    Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", Helvetica, Arial,\n    sans-serif;\n  background-color: var(--theme-background);\n  border: 1px dashed var(--theme-color);\n  border-radius: 5px;\n  cursor: pointer;\n} */\n\n.rp-stage {\n  position: relative;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto,\n    Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", Helvetica, Arial,\n    sans-serif;\n}\n\n.rp-image {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  overflow: hidden;\n}\n\n.rp-shapes {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n}\n\n.rp-selected-input {\n  position: absolute;\n}\n\n.rp-delete {\n  width: 20px;\n  height: 20px;\n  fill: white;\n}\n\n.rp-delete-section {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.rp-default-input-section {\n  display: flex;\n  align-items: stretch;\n  background-color: #3384ff;\n  border: none;\n  border-radius: 5px;\n}\n\n.rp-default-input-section input {\n  padding: 10px;\n  color: white;\n  background: transparent;\n  border: 0;\n  outline: none;\n}\n\n.rp-default-input-section input::placeholder {\n  color: #94bfff;\n}\n\n.rp-default-input-section a {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 35px;\n  color: white;\n  font-size: 12px;\n  background-color: #3b5bdb;\n  border-radius: 0 5px 5px 0;\n  cursor: pointer;\n  transition: background-color 0.5s, color 0.5s;\n}\n\n.rp-default-input-section a:hover,\n.rp-default-input-section a:active {\n  color: #3384ff;\n  background-color: #5c7cfa;\n}\n\n\n.loader {\n  border: 16px solid #f3f3f3;\n  border-radius: 50%;\n  border-top: 16px solid #3498db;\n  width: 120px;\n  height: 120px;\n  -webkit-animation: spin 2s linear infinite;\n  /* Safari */\n  animation: spin 2s linear infinite;\n}\n\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n\n  100% {\n    transform: rotate(360deg);\n  }\n}";
   styleInject(css_248z);
 
   function _classCallCheck(instance, Constructor) {
@@ -833,46 +833,57 @@
   };
 
   var DeleteButton = (function () {
-    return /*#__PURE__*/React.createElement("svg", {
+    return /*#__PURE__*/React__default.createElement("svg", {
       className: "rp-delete",
       xmlns: "http://www.w3.org/2000/svg",
       viewBox: "0 0 24 24"
-    }, /*#__PURE__*/React.createElement("g", {
+    }, /*#__PURE__*/React__default.createElement("g", {
       "data-name": "Layer 2"
-    }, /*#__PURE__*/React.createElement("g", {
+    }, /*#__PURE__*/React__default.createElement("g", {
       "data-name": "trash-2"
-    }, /*#__PURE__*/React.createElement("rect", {
+    }, /*#__PURE__*/React__default.createElement("rect", {
       width: "24",
       height: "24",
       opacity: "0"
-    }), /*#__PURE__*/React.createElement("path", {
+    }), /*#__PURE__*/React__default.createElement("path", {
       d: "M21 6h-5V4.33A2.42 2.42 0 0 0 13.5 2h-3A2.42 2.42 0 0 0 8 4.33V6H3a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2zM10 16a1 1 0 0 1-2 0v-4a1 1 0 0 1 2 0zm0-11.67c0-.16.21-.33.5-.33h3c.29 0 .5.17.5.33V6h-4zM16 16a1 1 0 0 1-2 0v-4a1 1 0 0 1 2 0z"
     }))));
   });
 
   var DefaultInputSection = (function (_ref) {
     var value = _ref.value,
-        _onChange = _ref.onChange,
+        onChange = _ref.onChange,
         onDelete = _ref.onDelete,
         _ref$placeholder = _ref.placeholder,
         placeholder = _ref$placeholder === void 0 ? "INPUT TAG HERE" : _ref$placeholder;
-    return /*#__PURE__*/React.createElement("div", {
+
+    var _useState = React.useState(value.type),
+        _useState2 = _slicedToArray(_useState, 2),
+        text = _useState2[0],
+        setText = _useState2[1];
+
+    return /*#__PURE__*/React__default.createElement("div", {
       className: "rp-default-input-section"
-    }, /*#__PURE__*/React.createElement("input", {
+    }, /*#__PURE__*/React__default.createElement("input", {
       className: "rp-default-input-section_input",
       placeholder: placeholder,
-      value: value.type,
+      value: text,
       onChange: function onChange(e) {
-        return _onChange(_objectSpread2(_objectSpread2({}, value), {}, {
-          type: e.target.value
-        }));
+        return setText(e.target.value);
       }
-    }), /*#__PURE__*/React.createElement("a", {
+    }), /*#__PURE__*/React__default.createElement("a", {
       className: "rp-default-input-section_delete",
       onClick: function onClick() {
         return onDelete();
       }
-    }, /*#__PURE__*/React.createElement(DeleteButton, null)));
+    }, /*#__PURE__*/React__default.createElement(DeleteButton, null)), /*#__PURE__*/React__default.createElement("a", {
+      className: "rp-default-input-section_delete",
+      onClick: function onClick() {
+        onChange(_objectSpread2(_objectSpread2({}, value), {}, {
+          type: text
+        }));
+      }
+    }, "Save Annotation"));
   });
 
   var defaultState = {
@@ -909,9 +920,9 @@
       _this.currentTransformer = void 0;
       _this.currentAnnotationData = [];
       _this.selectedIdTrueValue = void 0;
-      _this.canvasRef = /*#__PURE__*/React.createRef();
+      _this.canvasRef = /*#__PURE__*/React__default.createRef();
       _this.canvas2D = void 0;
-      _this.imageCanvasRef = /*#__PURE__*/React.createRef();
+      _this.imageCanvasRef = /*#__PURE__*/React__default.createRef();
       _this.imageCanvas2D = void 0;
       _this.currentImageElement = void 0;
       _this.currentAnnotationState = new DefaultAnnotationState(_assertThisInitialized(_this));
@@ -1300,14 +1311,15 @@
         var _this$props3 = this.props,
             width = _this$props3.width,
             height = _this$props3.height,
-            inputElement = _this$props3.inputElement;
+            inputElement = _this$props3.inputElement,
+            loading = _this$props3.loading;
         var _this$state = this.state,
             showInput = _this$state.showInput,
             inputPosition = _this$state.inputPosition,
             inputComment = _this$state.inputComment;
-        return /*#__PURE__*/React.createElement("div", {
+        return /*#__PURE__*/React__default.createElement("div", {
           className: "rp-stage"
-        }, /*#__PURE__*/React.createElement("canvas", {
+        }, /*#__PURE__*/React__default.createElement("canvas", {
           style: {
             width: width,
             height: height
@@ -1316,7 +1328,22 @@
           ref: this.imageCanvasRef,
           width: width * 2,
           height: height * 2
-        }), /*#__PURE__*/React.createElement("canvas", {
+        }), /*#__PURE__*/React__default.createElement("div", {
+          className: "rp-selected-input",
+          style: {
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100vh",
+            width: "100%"
+          }
+        }, loading && /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("div", {
+          className: "loader"
+        }), /*#__PURE__*/React__default.createElement("div", {
+          style: {
+            backgroundColor: "#fff"
+          }
+        }, "Loading Annotations", " "))), /*#__PURE__*/React__default.createElement("canvas", {
           className: "rp-shapes",
           style: {
             width: width,
@@ -1330,7 +1357,7 @@
           onMouseUp: this.onMouseUp,
           onMouseLeave: this.onMouseLeave,
           onWheel: this.onWheel
-        }), showInput && /*#__PURE__*/React.createElement("div", {
+        }), showInput && /*#__PURE__*/React__default.createElement("div", {
           className: "rp-selected-input",
           style: inputPosition
         }, inputElement(inputComment, this.onInputCommentChange, this.onDelete)));
@@ -1358,19 +1385,20 @@
     }]);
 
     return ReactPictureAnnotation;
-  }(React.Component);
+  }(React__default.Component);
 
   ReactPictureAnnotation.defaultProps = {
     marginWithInput: 10,
     scrollSpeed: 0.0005,
     annotationStyle: defaultShapeStyle,
     inputElement: function inputElement(value, onChange, onDelete) {
-      return /*#__PURE__*/React.createElement(DefaultInputSection, {
+      return /*#__PURE__*/React__default.createElement(DefaultInputSection, {
         value: value,
         onChange: onChange,
         onDelete: onDelete
       });
-    }
+    },
+    loading: false
   };
 
   exports.DefaultInputSection = DefaultInputSection;
