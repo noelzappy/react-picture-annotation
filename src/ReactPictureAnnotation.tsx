@@ -23,6 +23,7 @@ interface IReactPictureAnnotationProps {
   width: number;
   height: number;
   image: string;
+  loading: boolean;
   annotationStyle: IShapeStyle;
   defaultAnnotationSize?: number[];
   inputElement: (
@@ -30,7 +31,6 @@ interface IReactPictureAnnotationProps {
     onChange: (value: IComment) => void,
     onDelete: () => void
   ) => React.ReactElement;
-  loading: boolean;
 }
 
 interface IStageState {
@@ -52,6 +52,7 @@ export default class ReactPictureAnnotation extends React.Component<
     marginWithInput: 10,
     scrollSpeed: 0.0005,
     annotationStyle: defaultShapeStyle,
+    loading: false,
     inputElement: (
       value: IComment,
       onChange: (value: IComment) => void,
@@ -63,7 +64,6 @@ export default class ReactPictureAnnotation extends React.Component<
         onDelete={onDelete}
       />
     ),
-    loading: false,
   };
 
   public state = {
